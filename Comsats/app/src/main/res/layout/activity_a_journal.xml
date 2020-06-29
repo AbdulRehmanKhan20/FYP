@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/back3"
+    tools:context=".aJournal">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:gravity="center"
+        android:src="@drawable/journal"
+        android:text=" "
+        android:textSize="20dp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="@color/colorWhite"
+        android:text="Journal Details"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:text="Available Journals"
+        />
+
+    <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:context=".aJournal">
+
+    <Button
+        android:id="@+id/btn_addJournal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBtnBlue"
+        android:background="@drawable/buttonshape"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:shadowColor="#D1D1D1"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:layout_margin="10dp"
+        android:shadowRadius="5"
+        android:text="ADD Journals" />
+
+
+    <Button
+        android:id="@+id/btnlogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBtnBlue"
+        android:background="@drawable/buttonshape"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:shadowColor="#D1D1D1"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:layout_margin="10dp"
+        android:shadowRadius="5"
+        android:text="LOGOUT" />
+    </LinearLayout>
+
+
+    <GridView
+        android:id="@+id/JournalList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/colorPrimary"
+        android:numColumns="2"
+        >
+
+    </GridView>
+
+</LinearLayout>

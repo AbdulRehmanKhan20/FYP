@@ -1,0 +1,8 @@
+Read Me 
+1) Import the database Using Phpmyadmin.
+2) Open Cmd and type Ipconfig copy the wireless IP address.
+3) Change the BASE_URL inside URL.java class with the copied Ip address .
+4) Copy the WEB API folder into Xampp/htdocs/
+
+Connect Django with Xampp Mysql
+https://www.youtube.com/watch?v=8gSjvehTqAk

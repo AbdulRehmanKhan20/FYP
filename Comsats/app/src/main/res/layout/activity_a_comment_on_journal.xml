@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back3"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="212dp"
+        android:gravity="center"
+        android:src="@drawable/comment"
+        android:text=" "
+        android:textSize="20dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10sp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:text="Comment Here :" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/etBody"
+            android:layout_height="50dp"
+            android:textColor="@color/colorBtnBlue"
+            android:background="@color/colorWhite"
+            android:hint="Ex: This is new Research "
+            android:ems="10" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBtnBlue"
+        android:background="@drawable/buttonshape"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:shadowColor="#D1D1D1"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:layout_margin="10dp"
+        android:shadowRadius="5"
+        android:text="ADD Comment On Journal" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBtnBlue"
+        android:background="@drawable/buttonshape"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:shadowColor="#D1D1D1"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:layout_margin="10dp"
+        android:shadowRadius="5"
+        android:text="Logout" />
+
+    </LinearLayout>
+</LinearLayout>

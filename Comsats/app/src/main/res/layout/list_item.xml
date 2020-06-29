@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back6"
+    android:orientation="vertical">
+
+    <!-- Hidden TextView used to hold movieId -->
+    <TextView
+        android:id="@+id/jId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        />
+
+    <TextView
+        android:id="@+id/jTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:hint="Ex: Sports"
+         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Written By"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:hint="Ex: 10"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Body"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+
+
+    <TextView
+        android:id="@+id/body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:hint="Ex: Text"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Comment"
+            android:textColor="@color/colorBtnBlue"
+            android:background="@drawable/buttonshape"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:shadowColor="#D1D1D1"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:layout_margin="10dp"
+            android:shadowRadius="5"
+            android:id="@+id/btnComment"
+            />
+
+    </LinearLayout>
+</LinearLayout>

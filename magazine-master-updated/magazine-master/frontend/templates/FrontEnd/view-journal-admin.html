@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page-title %}
+    {{ journal.title }}
+{% endblock %}
+{% block content %}
+    <div class="inside-page">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-8">
+                    <section class="page-section">
+                        <div class="detail-content">
+                            <div class="page-title">
+                                <h1>{{ journal.title }}</h1>
+                            </div>
+                            <div class="single-post">
+                                <div class="info">
+                                    <ul class="list-inline">
+                                        <li>
+                                            <a class="url fn n"
+                                               href="#">
+                                                <div class="author-image">
+                                                    <img alt=""
+                                                         src="https://secure.gravatar.com/avatar/131d1ea2ad3effc5416e0a5f955db1ee?s=60&amp;d=mm&amp;r=g"
+                                                         srcset="https://secure.gravatar.com/avatar/131d1ea2ad3effc5416e0a5f955db1ee?s=120&amp;d=mm&amp;r=g 2x"
+                                                         class="avatar avatar-60 photo" height="60" width="60"></div>
+                                                {{ journal.author.username }} </a>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-clock"></i>
+                                            <a>{{ journal.last_updated|date:'Y-m-d H:i' }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/category/lifestyle/">Lifestyle</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="post-content">
+                                    <figure class="feature-image">
+                                        <img width="1280" height="853"
+                                             src="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/wp-content/uploads/2017/11/girl-2189247_1280.jpg"
+                                             class="attachment-full size-full wp-post-image" alt=""
+                                             srcset="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/wp-content/uploads/2017/11/girl-2189247_1280.jpg 1280w, https://thebootstrapthemes.com/demo/magazine-newspaper-blog/wp-content/uploads/2017/11/girl-2189247_1280-150x100.jpg 150w, https://thebootstrapthemes.com/demo/magazine-newspaper-blog/wp-content/uploads/2017/11/girl-2189247_1280-300x200.jpg 300w, https://thebootstrapthemes.com/demo/magazine-newspaper-blog/wp-content/uploads/2017/11/girl-2189247_1280-768x512.jpg 768w, https://thebootstrapthemes.com/demo/magazine-newspaper-blog/wp-content/uploads/2017/11/girl-2189247_1280-1024x682.jpg 1024w"
+                                             sizes="(max-width: 1280px) 100vw, 1280px">
+                                    </figure>
+                                    <article>
+                                        {{ journal.body | safe }}
+                                    </article>
+                                </div>
+                                <div class="author-post clearfix">
+                                    <div class="author-image">
+                                        <a href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/author/boostappotato9/"><img
+                                                alt=""
+                                                src="https://secure.gravatar.com/avatar/131d1ea2ad3effc5416e0a5f955db1ee?s=75&amp;d=mm&amp;r=g"
+                                                srcset="https://secure.gravatar.com/avatar/131d1ea2ad3effc5416e0a5f955db1ee?s=150&amp;d=mm&amp;r=g 2x"
+                                                class="avatar avatar-75 photo" height="75" width="75"></a>
+                                    </div>
+                                    <div class="author-details">
+                                        <h4>
+                                            <a href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/author/boostappotato9/">BoostapPotato9</a>
+                                        </h4>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Previous Comments -->
+                            <div class="previous-comments">
+                                <h3 id="reply-title" class="comment-reply-title">Posted Comments <span
+                                        class="badge badge-secondary">{{ comments.count }}</span></h3>
+                                <div class="col-md-8 card mb-4  mt-3">
+                                    <div class="card-body">
+                                        <!-- comments -->
+                                        {% for comment in comments %}
+                                            <div class="comments" style="padding: 10px;">
+                                                <p class="font-weight-bold">
+                                                    {{ comment.name }}
+                                                    <span class=" text-muted font-weight-normal">
+                  {{ comment.created_on }}
+                </span>
+                                                </p>
+                                                {{ comment.body | linebreaks }}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% if user.is_authenticated %}
+                                <!-- Previous Comments End -->
+                                <div id="comments" class="comments-area">
+                                    <div id="respond" class="comment-respond">
+                                        <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
+                                        {% if comment_form.errors %}
+                                            {% for field in comment_form %}
+                                                {% for error in field.errors %}
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ error|escape }}</strong>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endfor %}
+                                            {% for error in comment_form.non_field_errors %}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                        <!-- Form -->
+                                        {% load crispy_forms_tags %}
+                                        <form method="post" class="comment-form">
+                                            {% csrf_token %}
+                                            <p class="comment-notes">
+                                                <span id="email-notes">Your email address will not be published.</span>
+                                                Required fields are marked
+                                                <span class="required">*</span>
+                                            </p>
+                                            <p class="comment-form-comment">
+                                                <label for="comment">Comment <span class="required">*</span></label>
+                                                {{ comment_form.body|as_crispy_field }}
+                                            </p>
+                                            <p class="comment-form-author">
+                                                <label for="author">Name <span class="required">*</span></label>
+                                                {{ comment_form.name|as_crispy_field }}
+                                            </p>
+                                            <p class="comment-form-email">
+                                                <label for="email">Email <span class="required">*</span></label>
+                                                {{ comment_form.email|as_crispy_field }}
+                                            </p>
+                                            <p class="form-submit">
+                                                <input name="submit" type="submit" id="submit" class="submit">
+                                            </p>
+                                        </form>
+                                        <!-- Form End -->
+                                    </div><!-- #respond -->
+                                </div><!-- #comments -->
+                            {% endif %}
+                        </div><!-- /.end of deatil-content -->
+                    </section> <!-- /.end of section -->
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="inside-sidebar">
+                        <div id="secondary" class="widget-area" role="complementary">
+                            <aside id="categories-4" class="widget widget_categories"><h3 class="widget-title">
+                                Categories</h3>
+                                <ul>
+                                    <li class="cat-item cat-item-4"><a
+                                            href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/category/archive/">Archive</a>
+                                        (1)
+                                    </li>
+                                    <li class="cat-item cat-item-1"><a
+                                            href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/category/blog/">blog</a>
+                                        (3)
+                                    </li>
+                                    <li class="cat-item cat-item-5"><a
+                                            href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/category/lifestyle/">Lifestyle</a>
+                                        (4)
+                                    </li>
+                                    <li class="cat-item cat-item-6"><a
+                                            href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/category/national/">National</a>
+                                        (1)
+                                    </li>
+                                    <li class="cat-item cat-item-11"><a
+                                            href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/category/news/">News</a>
+                                        (1)
+                                    </li>
+                                    <li class="cat-item cat-item-2"><a
+                                            href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/category/slider/">slider</a>
+                                        (2)
+                                    </li>
+                                    <li class="cat-item cat-item-7"><a
+                                            href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/category/sports/">Sports</a>
+                                        (1)
+                                    </li>
+                                    <li class="cat-item cat-item-8"><a
+                                            href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/category/top-news/">Top
+                                        News</a> (1)
+                                    </li>
+                                </ul>
+                            </aside>
+                            <aside id="recent-posts-9" class="widget widget_recent_entries"><h3 class="widget-title">
+                                Recent Posts</h3>
+                                <ul>
+                                    <li>
+                                        <a href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/2017/11/21/farm/">They
+                                            are still using those farms</a>
+                                        <span class="post-date">November 21, 2017</span>
+                                    </li>
+                                    <li>
+                                        <a href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/2017/11/21/new-sport-that-is-winning-that-world/">New
+                                            Sport that is winning that world</a>
+                                        <span class="post-date">November 21, 2017</span>
+                                    </li>
+                                    <li>
+                                        <a href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/2017/11/21/the-copy-warned-the-little-blind-text/">Little
+                                            Blind text</a>
+                                        <span class="post-date">November 21, 2017</span>
+                                    </li>
+                                    <li>
+                                        <a href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/2017/11/21/parlia/">On
+                                            her way she met a copy</a>
+                                        <span class="post-date">November 21, 2017</span>
+                                    </li>
+                                    <li>
+                                        <a href="https://thebootstrapthemes.com/demo/magazine-newspaper-blog/2017/11/21/a-small-river-named-duden-flows-by-their-place-and-supplies/">A
+                                            small river named Duden flows</a>
+                                        <span class="post-date">November 21, 2017</span>
+                                    </li>
+                                </ul>
+                            </aside>
+                        </div><!-- #secondary --></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}

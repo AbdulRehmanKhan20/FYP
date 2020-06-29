@@ -1,0 +1,35 @@
+{% extends "mainbase.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10">
+                <h5><u>User :</u> <p> {{ user.first_name }} {{ user.last_name }}</p></h5>
+            </div>
+
+
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-sm-12">
+                <b>First Name</b>
+                <p style="text-align: justify">
+                    {{ user.first_name }}
+                </p>
+                <b>Last Name</b>
+                <p style="text-align: justify">
+                    {{ user.last_name }}
+                </p>
+                <b>User Name</b>
+                <p style="text-align: justify">
+                    {{ user.username }}
+                </p>
+                <b>Email</b>
+                <p style="text-align: justify">
+                    {{ user.email }}
+                </p>
+            </div>
+        </div>
+        <br/>
+    </div>
+    <br/><br/>
+{% endblock %}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    <link rel="Shortcut Icon" href="{% static 'images/comsats.png' %}">
+    <link rel="stylesheet" href="{% static 'css/hr-admin-custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom1.css' %}">
+    <title>{% block page-title %}{% endblock %}</title>
+    {% if user.username %}
+        {% include 'layout/mainheader.html' %}
+        {% include 'layout/header.html' %}
+    {% else %}
+        {% include 'layout/mainheader.html' %}
+    {% endif %}
+
+    <style>
+        {% block added-styles %}
+        {% endblock %}
+    </style>
+</head>
+<body>
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+        <div class="img bg-wrap text-center py-4"
+             style="">
+            <div class="user-logo">
+                <div class="img" style="background-image: url('{% static "images/comsats.png" %}' );">
+
+                </div>
+            </div>
+            <span style='font-size:1.2em;color:#fff;'>{{ user.first_name }} {{ user.last_name }}</span>
+            <br/>
+            <span style="font-size:0.8em;">({{ user }})</span>
+            <hr/>
+            <ul class="list-unstyled components mb-5">
+                <li class="active"><a href="{% url 'mainhome' %}"><span
+                        class="fa fa-home mr-3"></span> Home</a></li>
+                <li class="active"><a href="{% url 'FrontEnd:auditorium_list_reservation' %}"><span
+                        class="fa fa-download mr-3 notif"></span> Auditorium Booking</a></li>
+                <li class="active"><a href="{% url 'FrontEnd:daycare_list_reservation' %}"><span
+                        class="fa fa-gift mr-3"></span> DayCare Center Booking</a></li>
+                <li class="active"><a href="{% url 'Chat:index' %}"><span class="fa fa-trophy mr-3"></span> Chat
+                    Rooms</a></li>
+                <li class="active"><a href="{% url 'Journals:list_all_journals' %}"><span
+                        class="fa fa-list mr-3"></span> Journals</a></li>
+                <li class="active"><a href="{% url 'FrontEnd:alumni_list' %}"><span
+                        class="fa fa-support mr-3"></span> Alumni</a></li>
+                <li class="active"><a href="{% url 'FrontEnd:settings_detail' %}"><span
+                        class="fa fa-cog mr-3"></span> Settings</a></li>
+                <li class="active"><a href="{% url 'logout_user' %}"><span class="fa fa-sign-out mr-3"></span> Sign
+                    Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="content" style="padding: 1rem 1rem !important">
+        <nav aria-label="breadcrumb" style="margin-bottom: 5px">
+            <ol class="breadcrumb">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary"
+                        style="margin: 1px 5px 1px 1px; font-size: 0.6rem;"><i class="fa fa-arrow-left"></i></button>
+                {% block breadcrumbs %}
+                {% endblock %}
+            </ol>
+        </nav>
+        {% block content %}
+        {% endblock %}
+        {% include 'layout/mainfooter.html' %}
+    </div>
+</div>
+</body>
+<script src="{% static 'js/jquery-3.1.4.min.js' %}"></script>
+<script src="{% static 'js/jquery.formset.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/fontawesome.min.js' %}"></script>
+<script src="{% static 'js/chat.js' %}"></script>

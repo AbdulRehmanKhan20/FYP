@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/back3"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:background="@drawable/alumni"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:text=" Registration" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:textColor="@color/colorWhite"
+                android:text="Name :" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/etName"
+                android:layout_height="50dp"
+                android:hint="Ex: Abdullah "
+                android:layout_weight="0.75"
+                android:textColor="@color/colorBtnBlue"
+                android:background="@color/colorWhite"
+                android:ems="10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:textColor="@color/colorWhite"
+                android:text="Email :" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/etEmail"
+                android:layout_height="50dp"
+                android:hint="Ex: abdullah@gmail.com "
+                android:layout_weight="0.75"
+                android:textColor="@color/colorBtnBlue"
+                android:background="@color/colorWhite"
+                android:ems="10" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:textColor="@color/colorWhite"
+                android:text="Mobile/Phone :" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/etMobile"
+                android:layout_height="50dp"
+                android:hint="Ex: 0333XXXXXXX "
+                android:layout_weight="0.75"
+                android:textColor="@color/colorBtnBlue"
+                android:background="@color/colorWhite"
+                android:ems="10" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:textColor="@color/colorWhite"
+                android:text="Year Of Passing :" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/etYearOfPassing"
+                android:layout_height="50dp"
+                android:hint="Ex: 14/01/2018 "
+                android:textColor="@color/colorBtnBlue"
+                android:background="@color/colorWhite"
+                android:layout_weight="0.75"
+                android:ems="10" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:textColor="@color/colorWhite"
+                android:text="Date Of Birth :" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/etDateOfBirth"
+                android:layout_height="50dp"
+                android:hint="Ex: 14/01/1995 "
+                android:layout_weight="0.75"
+                android:textColor="@color/colorBtnBlue"
+                android:background="@color/colorWhite"
+                android:ems="10" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:textColor="@color/colorWhite"
+                android:text="Marital Status :" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/etMaritalStatus"
+                android:layout_height="50dp"
+                android:hint="Ex: Single,Married "
+                android:layout_weight="0.75"
+                android:textColor="@color/colorBtnBlue"
+                android:background="@color/colorWhite"
+                android:ems="10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:textColor="@color/colorWhite"
+                android:text="Profession :" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/etProfession"
+                android:layout_height="50dp"
+                android:hint="Ex: Software Engineer "
+                android:layout_weight="0.75"
+                android:textColor="@color/colorBtnBlue"
+                android:background="@color/colorWhite"
+                android:ems="10" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:textColor="@color/colorWhite"
+                android:text="Address :" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/etAddress"
+                android:layout_height="50dp"
+                android:hint="Ex: NawanShehr Abbottabad "
+                android:layout_weight="0.75"
+                android:textColor="@color/colorBtnBlue"
+                android:background="@color/colorWhite"
+                android:ems="10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:textColor="@color/colorWhite"
+                android:text="Graduation :" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/etGraduation"
+                android:layout_height="50dp"
+                android:hint="Ex: When "
+                android:textColor="@color/colorBtnBlue"
+                android:background="@color/colorWhite"
+                android:layout_weight="0.75"
+                android:ems="10" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBtnBlue"
+                android:background="@drawable/buttonshape"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:shadowColor="#D1D1D1"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:layout_margin="10dp"
+                android:shadowRadius="5"
+                android:text="Submit " />
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBtnBlue"
+                android:background="@drawable/buttonshape"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:shadowColor="#D1D1D1"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:layout_margin="10dp"
+                android:shadowRadius="5"
+                android:text="Logout" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

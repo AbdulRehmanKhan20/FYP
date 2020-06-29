@@ -1,0 +1,54 @@
+{% load static %}
+<footer class="header_div page-footer font-small blue pt-4">
+    <div class="container-fluid text-center text-md-left">
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{% static 'images/greyscale.png' %}" width="150"/>
+                    </div>
+                    <div class="col-md-8">
+                        It is a long established fact that a reader will be distracted by the readable content of a page
+                        when
+                        looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                        distribution
+                        of letters, as opposed to using 'Content here, content here', making it look like readable
+                        English.
+                    </div>
+                </div>
+
+            </div>
+            <hr class="clearfix w-100 d-md-none pb-3">
+            <div class="col-md-3 mb-md-0 mb-3">
+                <h5 class="text-uppercase">Important Links</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="{% url 'home' %}" style="color:#fff;">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'research' %}" style="color:#fff;">Research</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'students' %}" style="color:#fff;">Students</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about' %}" style="color:#fff;">About Us</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-md-3 mb-md-0 mb-3">
+                <h5 class="text-uppercase">Contact Us</h5>
+                <ul class="list-unstyled">
+
+                    <li>+92 992 111 001 007</li>
+                    <li>+92 992 383592-6</li>
+                    <li>Fax: 0992 - 383441</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#" style="color:#fff;">COMMAG</a>
+    </div>
+</footer>

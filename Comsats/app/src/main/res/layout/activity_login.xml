@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_user_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Login"
+    android:background="@drawable/back3"
+    android:padding="20dp">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:background="@drawable/login"
+        />
+
+    <TextView
+        android:text="User Login Form"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="30dp"
+        android:textColor="@color/colorWhite"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#fbfefd"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/email"
+        android:hint="Enter Your Email Here"
+        />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#fbfefd"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_below="@+id/email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/pass"
+        android:hint="Enter Your Password Here"/>
+
+
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:ems="10"
+        android:layout_below="@+id/pass"
+        android:id="@+id/editTextType"
+        android:visibility="gone"
+        android:gravity="center"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="20dp"
+    >
+
+    <Button
+        android:text="Log In Here"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pass"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorBtnBlue"
+        android:background="@drawable/buttonshape"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:shadowColor="#D1D1D1"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:layout_margin="10dp"
+        android:shadowRadius="5"
+        android:id="@+id/Login" />
+
+    <Button
+        android:text="Not Registered | Register Here"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Login"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/toRegister"
+        android:textColor="@color/colorBtnBlue"
+        android:background="@drawable/buttonshape"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:shadowColor="#D1D1D1"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:layout_margin="10dp"
+        android:shadowRadius="5"
+        />
+
+</LinearLayout>
+</LinearLayout>

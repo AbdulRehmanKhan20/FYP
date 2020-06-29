@@ -1,0 +1,93 @@
+{% extends "mainbase.html" %}
+{% load static %}
+{% block breadcrumbs %}
+    <li class="align-self-center breadcrumb-item"><a href="{% url 'FrontEnd:alumni_list' %}">Auditorium Reservations</a>
+    </li>
+    <li class="align-self-center breadcrumb-item active"><a href="#">Add New Alumini</a></li>
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <br/>
+        {% load crispy_forms_tags %}
+        <div class="row">
+            <div class="col-sm-12 col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="panel-title"><i class="fas fa-user-alt"></i> Add New Alumini</div>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" name="name" id="name">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="phone">Mobile/Phone</label>
+                                    <input type="number" class="form-control" id="phone" name="phone">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="year_of_passing">Year of Passing</label>
+                                    <input type="number" class="form-control" id="year_of_passing"
+                                           name="year_of_passing">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="date_of_birth">Date of Birth</label>
+                                    <input type="date" class="form-control" id="date_of_birth" name="date_of_birth">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="martial_status">Martial Status</label>
+                                    <input type="text" class="form-control" id="martial_status" name="martial_status">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="profession">Profession</label>
+                                    <input type="text" class="form-control" id="profession" name="profession">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="address">Address</label>
+                                    <textarea type="text" class="form-control" id="address" name="address"
+                                              rows="4"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="graduation">Where did life take you after Graduation?</label>
+                                    <textarea type="text" class="form-control" id="graduation" name="graduation"
+                                              rows="4"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="graduation1">Fondest memories of life @Graduation</label>
+                                    <textarea type="text" class="form-control" id="graduation1" name="graduation1"
+                                              rows="4"></textarea>
+                                </div>
+                            </div>
+                            <br/>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus-square"></i> Add Alumini</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

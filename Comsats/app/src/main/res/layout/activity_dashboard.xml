@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="5"
+    android:background="@drawable/back3"
+    tools:context=".Dashboard">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="162dp"
+            android:src="@drawable/comsats"
+			android:layout_weight="1"
+            android:textColor="@color/colorWhite" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WELCOME TO DASHBOARD"
+        android:layout_weight="1" 	 	          
+android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:textSize="25sp"
+            />
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"
+            android:id="@+id/btn_reserveAuditorium"
+            android:textColor="@color/colorBtnBlue"
+            android:layout_weight="1"
+            android:text="AUDITORIUM RESERVATION"
+            android:textSize="20sp"
+            android:shadowColor="#D1D1D1"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:layout_margin="10dp"
+            android:shadowRadius="5"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_DayCareReserve"
+            android:background="@drawable/buttonshape"
+            android:textColor="@color/colorBtnBlue"
+            android:layout_weight="1"
+            android:text="DAYCARE RESERVATION"
+            android:textSize="20sp"
+            android:shadowColor="#D1D1D1"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:layout_margin="10dp"
+            android:shadowRadius="5"
+            />
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_journal"
+            android:background="@drawable/buttonshape"
+            android:textColor="@color/colorBtnBlue"
+            android:layout_weight="1"
+            android:text="ADD NEW JOURNAL"
+            android:textSize="20sp"
+            android:shadowColor="#D1D1D1"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:layout_margin="10dp"
+            android:shadowRadius="5"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_chatRoom"
+            android:background="@drawable/buttonshape"
+            android:textColor="@color/colorBtnBlue"
+            android:layout_weight="1"
+            android:text="JOIN CHATROOM"
+            android:textSize="20sp"
+            android:shadowColor="#D1D1D1"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:layout_margin="10dp"
+            android:shadowRadius="5"
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_commentOnJournal"
+            android:visibility="gone"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAlumni"
+            android:background="@drawable/buttonshape"
+            android:textColor="@color/colorBtnBlue"
+            android:layout_weight="1"
+            android:text="ALUMNI RESERVATION"
+            android:textSize="20sp"
+            android:shadowColor="#D1D1D1"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:layout_margin="10dp"
+            android:shadowRadius="5"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnlogout"
+            android:background="@drawable/buttonshape"
+            android:textColor="@color/colorBtnBlue"
+            android:layout_weight="1"
+            android:text="LOGOUT"
+            android:textSize="20sp"
+            android:shadowColor="#D1D1D1"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:layout_margin="10dp"
+            android:shadowRadius="5"
+            />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

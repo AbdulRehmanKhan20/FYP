@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back3"
+    android:orientation="vertical"
+    tools:context=".aChatChat">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="158dp"
+        android:gravity="center"
+        android:src="@drawable/chat"
+        android:text="Chat Room Details "
+        android:textSize="20dp" />
+
+
+    <ListView
+        android:id="@+id/msgview"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@null"
+        android:divider="@null"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"></ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <EditText
+            android:id="@+id/msg"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:hint="Hello..."
+            android:textColor="@color/colorBtnBlue"
+            android:background="@color/colorWhite"
+            android:layout_weight="2" />
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:textColor="@color/colorBtnBlue"
+            android:background="@drawable/buttonshape"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:shadowColor="#D1D1D1"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:layout_margin="10dp"
+            android:shadowRadius="5"
+            android:text="Send" />
+
+    </LinearLayout>
+</LinearLayout>

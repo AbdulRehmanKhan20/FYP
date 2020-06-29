@@ -1,0 +1,50 @@
+{% extends "mainbase.html" %}
+{% block breadcrumbs %}
+    <li class="align-self-center breadcrumb-item"><a href="{% url 'FrontEnd:daycare_list_reservation' %}">Daycare
+        Reservations</a>
+    </li>
+    <li class="align-self-center breadcrumb-item active"><a href="#">Make New Daycare Reservation</a></li>
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <br/>
+        {% load crispy_forms_tags %}
+        <div class="row">
+            <div class="col-sm-12 col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="panel-title"><i class="fa fa-calendar-alt"></i> Make New Daycare Reservation</div>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="reason">Reason</label>
+                                    <textarea type="text" class="form-control" name="reason" id="reason" rows="6"
+                                              placeholder="Reason for booking..."></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="start_time">Start Time</label>
+                                    <input type="datetime-local" class="form-control" id="start_time"
+                                           name="start_time"/>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="end_time">End Time</label>
+                                    <input type="datetime-local" class="form-control" id="end_time"
+                                           name="end_time"/>
+                                </div>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus-square"></i> Make Reservation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

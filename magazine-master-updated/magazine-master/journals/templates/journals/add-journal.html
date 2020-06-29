@@ -1,0 +1,49 @@
+{% extends "mainbase.html" %}
+{% block page-title %}
+    {{ page_title }}
+{% endblock %}
+{% block breadcrumbs %}
+    <li class="align-self-center breadcrumb-item"><a href="{% url 'Journals:list_published_journals' %}">Journals</a>
+    </li>
+    <li class="align-self-center breadcrumb-item active"><a href="{% url 'Journals:add_journal' %}">Add Journal</a></li>
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <br/>
+        {% load crispy_forms_tags %}
+        <div class="row">
+            <div class="col-sm-12 col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="panel-title"><i class="fa fa-book"></i> {{ page_title }}</div>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {{ form.non_field_errors }}
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    {{ form.title|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    {{ form.body|as_crispy_field }}
+                                </div>
+                            </div>
+                            {% if form_type == 'add' %}
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus-square"></i> Add
+                                    Journal
+                                </button>
+                            {% else %}
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-refresh"></i> Update
+                                    Journal
+                                </button>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

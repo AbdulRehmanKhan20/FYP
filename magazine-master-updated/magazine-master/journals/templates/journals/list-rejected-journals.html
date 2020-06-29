@@ -1,0 +1,202 @@
+{% extends "mainbase.html" %}
+{% block page-title %}
+    List Rejected Journals
+{% endblock %}
+{% block added-styles %}
+    .well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    }
+
+    .media-heading {
+    margin: 0 0 5px;
+    }
+
+    h4.media-heading {
+    font-size: 18px;
+    }
+
+    .media-object {
+    display: block;
+    }
+
+    .media-body p {
+    margin-bottom: 10px;
+    line-height: 1.4;
+    }
+
+    .media-body .journal-body-text {
+    height: 60px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1.4;
+    }
+
+    .media-body .journal-body-text p span{
+    font-family: "Poppins", Arial, sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    font-weight: normal;
+    color: gray;
+    margin-bottom: 10px;
+    }
+
+    .media-body .journal-body-text p img {
+    display: none;
+    }
+
+    .media, .media-body {
+    overflow: hidden;
+    zoom: 1;
+    }
+
+    .media>.pull-left {
+    margin-right: 10px;
+    }
+
+    .list-inline>li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+    }
+
+    div.well i {
+    color: #595959;
+    }
+{% endblock %}
+{% block breadcrumbs %}
+    <li class="align-self-center breadcrumb-item"><a href="#">Journals</a></li>
+    <li class="align-self-center breadcrumb-item active"><a href="#">List Rejected Journals</a></li>
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <h5><i class="fas fa-newspaper"></i> {{ page_type }}</h5>
+            </div>
+            <div class="col-sm-8 text-right">
+                <a href="">
+                    <a href="{% url 'Journals:add_journal' %}">
+                        <button class="btn btn-sm btn-outline-primary"><i class="fa fa-plus-circle"></i> Add Journal
+                        </button>
+                    </a>
+                </a>
+            </div>
+        </div>
+        <br/>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="{% url 'Journals:list_published_journals' %}">Approved</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="{% url 'Journals:list_pending_journals' %}">Approval Pending</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active"
+                   href="{% url 'Journals:list_rejected_journals' %}">Rejected Journals</a>
+            </li>
+        </ul>
+        <br/>
+        {% if journals_list %}
+            <div class="container">
+                {% for journal in journals_list %}
+                    <div class="well" style="background-color: #f5f5f5;">
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="http://placekitten.com/150/150">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"
+                                    style="display: inline-block; float: left">{{ journal.title }}</h4>
+                                <p class="text-right" style="display: inline-block; float: right"><i
+                                        class="fa fa-user"></i> Author: {{ journal.author.username }}</p>
+                                <div class="journal-body-text"
+                                     style="clear: both">{{ journal.body|striptags|truncatechars:200 }}</div>
+                                <div class="row">
+                                    <div class="col">
+                                        <ul class="list-inline list-unstyled">
+                                            <li><span><i
+                                                    class="fa fa-calendar"></i> {{ journal.last_updated|date:'Y-m-d H:i' }} </span>
+                                            </li>
+                                            <li>|</li>
+                                            <a href="{% url 'Journals:view_journal_admin' journal_id=journal.id %}#previous-comments">
+                                                <button class="btn"><i
+                                                        class="fa fa-comment"></i> {{ journal.admin_comments.count }}
+                                                    comments
+                                                </button>
+                                            </a>
+                                            <li>|</li>
+                                            <li>
+                                                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                                                <span><i class="fa fa-facebook-square"></i></span>
+                                                <span><i class="fa fa-twitter-square"></i></span>
+                                                <span><i class="fa fa-google-plus-square"></i></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col text-right">
+                                        <a href="{% url 'Journals:view_journal_admin' journal_id=journal.id %}">
+                                            <button class="btn" title="View Journal"><i class="fa fa-eye"></i>
+                                            </button>
+                                        </a> |
+                                        <a href="{% url 'Journals:edit_journal' journal_id=journal.id %}">
+                                            <button class="btn" title="Edit Journal"><i class="fa fa-edit"></i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <br/>
+            {% if journals_list.has_other_pages %}
+                <nav aria-label="Page navigation example" style="float:right">
+                    <ul class="pagination">
+                        {% if journals_list.has_previous %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="?page={{ journals_list.previous_page_number }}">&laquo;</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+                        {% endif %}
+                        {% for i in journals_list.paginator.page_range %}
+                            {% if users.number == i %}
+                                <li class="page-item active"><span>{{ i }} <span class="sr-only">(current)</span></span>
+                                </li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if journals_list.has_next %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="?page={{ journals_list.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                            <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endif %}
+        {% else %}
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2">
+                    <div class="alert alert-warning text-center" role="alert">
+                        <i class="fas fa-exclamation-triangle"> </i>
+                        No Journals have been posted up-till now!
+                    </div>
+                </div>
+                <div class="offset-sm-4"></div>
+            </div>
+        {% endif %}
+    </div>
+    <br/><br/>
+{% endblock %}

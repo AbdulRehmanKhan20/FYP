@@ -1,0 +1,126 @@
+{% extends "mainbase.html" %}
+{% block page-title %}
+    List Rejected Reservations
+{% endblock %}
+{% load journal_extras %}
+{% block breadcrumbs %}
+    <li class="align-self-center breadcrumb-item"><a href="{% url 'FrontEnd:auditorium_list_reservation' %}">Auditorium Reservations</a>
+    </li>
+    <li class="align-self-center breadcrumb-item active"><a href="{% url 'FrontEnd:auditorium_rejected_list_reservation' %}">List
+        Rejected Reservations</a></li>
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <br/>
+        <div class="row">
+            <div class="col-sm-4">
+                <h5><i class="fas fa-calendar"></i> {{ page_type }}</h5>
+            </div>
+            <div class="col-sm-8 text-right">
+                <a href="">
+                    <a href="{% url 'FrontEnd:auditorium_reservation' %}">
+                        <button class="btn btn-sm btn-outline-primary"><i class="fa fa-plus-circle"></i> Add Reservation
+                        </button>
+                    </a>
+                </a>
+            </div>
+        </div>
+        <hr/>
+        <br/>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="{% url 'FrontEnd:auditorium_list_reservation' %}">Approved</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="{% url 'FrontEnd:auditorium_pending_list_reservation' %}">Approval Pending</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active"
+                   href="{% url 'FrontEnd:auditorium_rejected_list_reservation' %}">Rejected</a>
+            </li>
+        </ul>
+        <br/>
+        {% if reservations_list %}
+            <div class="container">
+                <div class="row">
+                    {% for reservation in reservations_list %}
+                        <div class="col-sm-4"
+                             onClick="window.location='{% url 'FrontEnd:auditorium_detail_reservation' reservation.id %}'">
+                            <div class="job-vacancy">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h4>{{ reservation.reason }}</h4>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <p>Start Time: {{ reservation.start_time }}</p>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <p>End Time: {{ reservation.end_time }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col text-right">
+                                        <hr/>
+                                            <a href="{% url 'FrontEnd:auditorium_detail_reservation' reservation_id=reservation.id %}">
+                                                <button class="btn" title="View Reservation"><i class="fa fa-eye"></i>
+                                                </button>
+                                            {% if reservation.requestor == request.user %}
+                                            </a> |
+                                            <a href="{% url 'FrontEnd:auditorium_edit_reservation' reservation_id=reservation.id %}">
+                                                <button class="btn" title="Edit Reservation"><i class="fa fa-edit"></i>
+                                                </button>
+                                            </a>
+                                            {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <br/>
+            {% if reservations_list.has_other_pages %}
+                <nav aria-label="Page navigation example" style="float:right">
+                    <ul class="pagination">
+                        {% if reservations_list.has_previous %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="?page={{ reservations_list.previous_page_number }}">&laquo;</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+                        {% endif %}
+                        {% for i in reservations_list.paginator.page_range %}
+                            {% if users.number == i %}
+                                <li class="page-item active"><span>{{ i }} <span class="sr-only">(current)</span></span>
+                                </li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if reservations_list.has_next %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="?page={{ reservations_list.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                            <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endif %}
+        {% else %}
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2">
+                    <div class="alert alert-warning text-center" role="alert">
+                        <i class="fas fa-exclamation-triangle"> </i>
+                        No Reservations have been posted up-till now!
+                    </div>
+                </div>
+                <div class="offset-sm-4"></div>
+            </div>
+        {% endif %}
+    </div>
+    <br/><br/>
+{% endblock %}

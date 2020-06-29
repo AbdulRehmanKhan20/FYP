@@ -1,0 +1,99 @@
+{% extends "mainbase.html" %}
+{% load journal_extras %}
+{% block page-title %}
+    {{ journal.title }}
+{% endblock %}
+{% block breadcrumbs %}
+    <li class="align-self-center breadcrumb-item"><a href="{% url 'Journals:list_published_journals' %}">Journals</a>
+    </li>
+    <li class="align-self-center breadcrumb-item active"><a href="#">View Journal</a></li>
+{% endblock %}
+{% block content %}
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-10 blog-main">
+                <div class="blog-post">
+                    <h2 class="blog-post-title">{{ journal.title }}</h2>
+                    <div class="row mb-3 border-bottom">
+                        <div class="col">
+                            <p class="blog-post-meta">
+                                {{ journal.created_at|date:'Y-m-d H:i' }} by <a
+                                    href="#">{{ journal.author.username }}</a>
+                            </p>
+                        </div>
+                        {% if request.user|has_admin_group %}
+                        <div class="col text-right">
+                            <a href="{% url 'Journals:approve_journal' journal_id=journal.id %}">
+                                <button class="btn btn-sm btn-outline-primary"><i class="fa fa-check"> </i>Approve
+                                </button>
+                            </a>
+                            &nbsp;
+                            <a href="{% url 'Journals:reject_journal' journal_id=journal.id %}">
+                                <button class="btn btn-sm btn-outline-danger"><i class="fa fa-close"> </i>Reject
+                                </button>
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {{ journal.body|safe }}
+                </div><!-- /.blog-post -->
+            </div><!-- /.blog-main -->
+        </div><!-- /.row -->
+        {% if request.user|has_admin_group %}
+            <div class="row">
+                <div class="col-md-10">
+                    <h3 class="pb-2 mb-4 mt-4 font-italic border-bottom">
+                        Leave a comment
+                    </h3>
+                    {% if comment_form.errors %}
+                        {% for field in comment_form %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    <strong>{{ error|escape }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in comment_form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <!-- Form -->
+                    {% load crispy_forms_tags %}
+                    <form method="post" class="comment-form">
+                        {% csrf_token %}
+                        <p class="comment-form-comment">
+                            <label for="comment">Comment <span class="required">*</span></label>
+                            {{ comment_form.body|as_crispy_field }}
+                        </p>
+                        <p class="form-submit">
+                            <input name="submit" type="submit" id="submit" class="btn btn-primary" value="Add">
+                        </p>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-md-10" id="previous-comments">
+                <h3 class="pb-2 mb-4 mt-4 font-italic border-bottom">
+                    Posted Comments <span
+                        class="badge badge-secondary"
+                        style="font-style: normal !important;font-size: 60% !important;font-weight: normal !important;">{{ comments.count }}</span>
+                </h3>
+                <!-- comments -->
+                {% for comment in comments %}
+                    <div class="media mb-4">
+                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                        <div class="media-body">
+                            <h5 class="mt-0">{{ comment.admin.username }}</h5>
+                            <span class="text-muted font-weight-normal">{{ comment.created_on }}</span>
+                            {{ comment.body | linebreaks }}
+                        </div>
+                    </div>
+                {% endfor %}
+                <!-- comments end -->
+            </div>
+        </div>
+    </main>
+{% endblock content %}
